@@ -1,4 +1,4 @@
-const topper = (top, newStudent) => {
+const getTopperByAverage = (top, newStudent) => {
   const topAverage = top.at(2);
   const studentAverage = newStudent.at(2);
 
@@ -9,7 +9,7 @@ const topper = (top, newStudent) => {
   return top;
 };
 
-const toppersArray = (topArray, newStudent) => {
+const collectTopperTies = (topArray, newStudent) => {
   const topAverage = topArray.at(-1).at(2);
   const studentAverage = newStudent.at(2);
 
@@ -24,21 +24,16 @@ const toppersArray = (topArray, newStudent) => {
 };
 
 const calcGrade = (avg) => {
-  if (avg > 90 && avg < 100) return "Grade A";
-  else if (avg > 80 && avg < 90) return "Grade B";
-  else if (avg > 60 && avg < 70) return "Grade D";
-  else if (avg > 70 && avg < 80) return "Grade C";
-  else if (avg > 50 && avg < 100) return "Grade E";
+  if (avg >= 90 && avg <= 100) return "Grade A";
+  else if (avg >= 80 && avg <= 90) return "Grade B";
+  else if (avg >= 60 && avg <= 70) return "Grade D";
+  else if (avg >= 70 && avg <= 80) return "Grade C";
+  else if (avg >= 50 && avg <= 100) return "Grade E";
   else return "Grade F";
 };
 
-const calcAverage = (marks) => {
-  return (
-    Object.values(marks).reduce(
-      (marks, preSubjectMarks) => marks + preSubjectMarks
-    ) / 3
-  );
-};
+const calcAverage = ({ Math, Science, English }) =>
+  (Math + Science + English) / 3;
 
 const studentReport = (data) => {
   const report = [];
@@ -134,8 +129,8 @@ const finalTemplate = (
 
 const result = (data) => {
   const report = data.map(studentReport);
-  const classTopper = report.reduce(topper, report[0]);
-  const classTopperArray = report.reduce(toppersArray, [classTopper]);
+  const classTopper = report.reduce(getTopperByAverage, report[0]);
+  const classTopperArray = report.reduce(collectTopperTies, [classTopper]);
   const topStudentsWithAvg = classTopperArray.map(nameWithAvg);
   const failedStudents = report.filter((student) => student.at(2) < 50);
   const failedStudentsWithAvg = failedStudents.map(nameWithAvg);
