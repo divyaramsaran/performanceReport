@@ -150,30 +150,48 @@ const result = (data) => {
 
 const data = [
   {
-    name: "Alice",
-    rollNo: 101,
+    name: "Fiona",
+    rollNo: 201,
     marks: {
-      Math: 95,
-      Science: 88,
-      English: 91,
+      Math: 59,
+      Science: 60,
+      English: 61,
     },
   },
   {
-    name: "Bob",
-    rollNo: 102,
+    name: "George",
+    rollNo: 202,
     marks: {
-      Math: 40,
-      Science: 35,
-      English: 42,
+      Math: 100,
+      Science: 99,
+      English: 98,
     },
   },
   {
-    name: "Charlie",
-    rollNo: 103,
+    name: "Hannah",
+    rollNo: 203,
     marks: {
-      Math: 78,
-      Science: 85,
-      English: 80,
+      Math: 100,
+      Science: 99,
+      English: 98,
+    },
+  },
+  {
+    name: "Ian",
+    rollNo: 204,
+    marks: {
+      Math: 39,
+      Science: 41,
+      English: 40,
+    },
+  },
+  {
+    name: "Julia",
+    rollNo: 205,
+    marks: {
+      Math: 60,
+      Science: 74,
+      English: 60,
     },
   },
 ];
